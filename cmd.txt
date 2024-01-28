@@ -1,0 +1,7 @@
+BIBLIOTÉCAS
+
+npm init
+npm install express axios cheerio
+npm install -g nodemon
+npm start
+npm install cors

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumir API</title>
+</head>
+<body>
+    <h1>Frase do Dia</h1>
+    <input type="text" id="termoPesquisa" placeholder="Digite o termo">
+    <button onclick="buscarNovaFrase()">Nova Frase</button>
+    <p id="frase"></p>
+
+    <script>
+        async function buscarNovaFrase() {
+            const termoPesquisa = document.getElementById('termoPesquisa').value;
+
+            try {
+                const response = await fetch(`http://localhost:3000/buscar-frases?termo=${encodeURIComponent(termoPesquisa)}`, { mode: 'cors' });
+                const data = await response.json();
+
+                if (data.frases && data.frases.length > 0) {
+                    const novaFrase = data.frases[Math.floor(Math.random() * data.frases.length)];
+                    document.getElementById('frase').innerText = novaFrase;
+                } else {
+                    document.getElementById('frase').innerText = 'Nenhuma frase encontrada.';
+                }
+            } catch (error) {
+                console.error('Erro ao buscar nova frase:', error);
+                document.getElementById('frase').innerText = 'Erro ao buscar nova frase.';
+            }
+        }
+    </script>
+</body>
+</html>
