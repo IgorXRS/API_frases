@@ -4,13 +4,96 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consumir API</title>
+    <meta name="author" content="Igor Xaiver">
+    <title>API de Frases</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            color: rgb(0, 51, 51);
+        }
+        .box{
+            background: rgb(100, 247, 252);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 50%;
+            height: 70%;
+            border-radius: 20px;
+            box-shadow: 10px 5px 30px rgba(0, 51, 51, 0.377);
+        }
+        body{
+            background: rgb(198, 253, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            width: 100%;
+        }
+
+        .box > p {
+            width: 80%;
+            text-align: center;
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        .box > input {
+            width: 80%;
+            height: 50px;
+            border: none;
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        .box > button {
+            margin: 20px;
+            height: 30px;
+            width: 30%;
+            background: rgb(0, 51, 51);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .box > button:hover{
+            width: 34%;
+            border: 2px solid white;
+            transition: 0.4s;
+        }
+
+        .box > h1{
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-weight: 300;
+            margin-bottom: 30px;
+        }
+
+        .reference{
+            width: 40%;
+            padding: 20px;
+            font-size: 13px;
+        }
+
+    </style>
 </head>
 <body>
-    <h1>Frase do Dia</h1>
-    <input type="text" id="termoPesquisa" placeholder="Digite o termo">
-    <button onclick="buscarNovaFrase()">Nova Frase</button>
-    <p id="frase"></p>
+    <div class="box">
+        <h1>BUSCADOR DE FRASES</h1>
+        <input type="text" id="termoPesquisa" placeholder="Digite o termo">
+        <button onclick="buscarNovaFrase()">Nova Frase</button>
+        <p id="frase"></p>
+    </div>
+    <div class="reference">
+        <p>Neste projeto, foi desenvolvida uma API para buscar frases do site "O Pensador". 
+            As frases são recuperadas de forma aleatória. Caso deseje um tema específico, 
+            digite o assunto e busque a nova frase. Visite o site "<a href="https://www.pensador.com/" target="_blank">O Pensador</a>"
+             – um ótimo fonte de frases, poemas, textos, entre outros.
+        </p>
+    </div>
 
     <script>
         async function buscarNovaFrase() {
